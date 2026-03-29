@@ -92,6 +92,6 @@ io.on("connection", (socket) => {
 console.log("sending request to app.js");
 
 // ✅ FIXED HERE
-server.listen(PORT, () => {
+server.listen(process.env.PORT || PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
