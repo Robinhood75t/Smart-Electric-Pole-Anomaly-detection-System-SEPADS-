@@ -75,7 +75,7 @@ io.emit("baseline-update", {
   expected_current,
   expected_voltage
 });
-
+```
 ### Anomaly Detection Logic
 
 The system compares real-time values with baseline:
