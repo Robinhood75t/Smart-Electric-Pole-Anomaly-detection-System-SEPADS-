@@ -43,17 +43,6 @@ router.post("/", async (req, res) => {
       power,
       time_stamp: new Date()
     })
-
-    // Save reading
-    // await PoleReading.create({
-    //   pole_id,
-    //   current,
-    //   voltage,
-    //   power,
-    //   time_stamp: new Date()
-    // });
-
-    // Run detection
     const result = await detect({ pole_id, current, voltage });
 
     res.json({

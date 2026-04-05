@@ -1,61 +1,13 @@
-// const PoleReading = require("../models/pole_reading");
-// const BaseLine = require("../models/baseline");
-
-// async function updateBaseline(){
-//     try{
-//         const result = await PoleReading.aggregate([
-//             {
-//                 $addFields:{
-//                     time_slot: {
-//                         $dateToString: { format: "%H:00", date: "$timestamp"}
-//                     }
-//                 }
-//             },
-//             {
-//                 $group: {
-//                     _id: {
-//                         pole_id: "$pole_id",
-//                         time_slot: "$timestamp"
-//                     },
-//                     avg_current: { $avg: "$current" },
-//                     avg_voltage: {$avg: "$voltage" },
-//                     stdev_current: { $stdDevPop: "$current" }
-//                 }
-//             }
-//         ]);
-
-//         for(let item of result){
-//             await BaseLine.updateOne(
-//                 {
-//                     pole_id: item._id.pole_id,
-//                     time_slot: item.id.time_slot
-//                 },
-//                 {
-//                     $set: {
-//                         avg_current: item.avg_current,
-//                         avg_voltage: item.avg_voltage,
-//                         stdev_current: item.stdev_current,
-//                         updated_at: new Date()
-//                     }
-//                 },
-//                 { upsert: true }
-//             );
-//         }
-//         console.log("baseline updated successfully");
-//     } catch(error){
-//         console.error("baseline update failed: ", error);
-//     }
-// }
-
-// module.exports = updateBaseline;
-
 
 const History = require("../models/pole_reading_history");
 const BaseLine = require("../models/baseline");
 
 async function updateBaseline(io) {
     try {
-        //const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000);   // here change
+        // As you can see there are 2 things - OneHourAgo & OneMinuteAgo -
+        // the minute variable is just for testing purpose & 
+        // for production we do oneHourAgothe minute variable is just for testing purpose & for production we do oneHourAgo
+        //const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000);   
         const oneMinuteAgo = new Date(Date.now() - 60 * 1000);
         const result = await History.aggregate([
             {
@@ -106,7 +58,7 @@ async function updateBaseline(io) {
                 { upsert: true, new: true }
             );
         
-            // 🔥 SAFETY CHECK (IMPORTANT)
+            // SAFETY CHECK 
             if (!updated) {
                 console.log("⚠️ Updated is null for:", item._id);
                 continue;

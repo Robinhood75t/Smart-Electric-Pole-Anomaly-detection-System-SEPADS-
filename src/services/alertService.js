@@ -1,7 +1,6 @@
 let io;
 
 const Alert = require("../models/alert");
-const { getIO } = require("../socket");
 const lastAlertTime = {};
 
 async function triggerAlert({ pole_id, status , score}){
