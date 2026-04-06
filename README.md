@@ -83,10 +83,13 @@ The system compares real-time values with baseline:
 If current > avg_current + (k × std_dev)
 → Anomaly Detected 
 
+---
 
 ###  Time Window Strategy
 
 We use different time windows depending on use-case:
+
+---
 
 ### Testing Mode
 
@@ -94,6 +97,8 @@ const oneMinuteAgo = new Date(Date.now() - 60 * 1000);
 Fast updates
 Helps in debugging
 More sensitive to changes
+
+---
 
 ### Production Mode
 
