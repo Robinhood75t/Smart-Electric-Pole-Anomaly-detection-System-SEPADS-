@@ -106,7 +106,7 @@ const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000);
 Stable baseline
 Reduces noise
 Better for real-world deployment
-
+---
 ### Tech Stack
 
 Backend: Node.js, Express
@@ -115,13 +115,14 @@ IoT: ESP8266 / ESP32
 Real-Time: Socket.IO
 Deployment: Render
 
+---
 ### Environment Variables
 
 Create a .env file in the root directory:
 MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/<database>?retryWrites=true&w=majority
 PORT=9000
 
-
+---
 ### Running the Project
 
 1. Install dependencies
@@ -129,7 +130,7 @@ npm install
 2. Start server
 npm start
 
-
+---
 ### Future Improvements
 
  -Advanced anomaly detection (Machine Learning)
@@ -137,13 +138,14 @@ npm start
  -Alert system (SMS/Email)
  -Geo-mapping of poles
 
-
+---
 ### Team
 Robin – Backend Developer
 Aashish - Frontend Developer
 Yash - Testing & Production 
 Daksh - IOT & Hardware
 
+---
 ### Problem Statement
 
 Electric infrastructure often suffers from:
