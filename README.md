@@ -155,4 +155,4 @@ Short circuits
 This system aims to detect these issues in real-time and improve reliability.
 
 ### Final Note
-This project demonstrates how IoT + Backend + Data Processing can be combined to build a scalable and intelligent monitoring solution.
+This project demonstrates how IoT + Backend + Data Processing can be combined to build a scalable and intelligent monitoring.
